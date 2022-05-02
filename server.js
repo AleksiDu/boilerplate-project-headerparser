@@ -25,7 +25,11 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-
+//#2 Request Header Parser Microservice
+app.get("/api/whoami", (req, res) => {
+  let userIp = req.ip;
+  res.json({ ipaddress:userIp });
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 3000, function () {
